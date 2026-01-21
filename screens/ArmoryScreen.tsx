@@ -288,8 +288,8 @@ const ArmoryScreen: React.FC<ArmoryScreenProps> = ({ onBack }) => {
   // Dossier State
   const [selectedHeroIndex, setSelectedHeroIndex] = useState(0);
   const [dossierTab, setDossierTab] = useState<DossierTab>('overview');
-  const [heroXP, setHeroXP] = useState(350); // Mock XP
-  const [unlockedSkills, setUnlockedSkills] = useState<string[]>(['s1']); // Mock unlocked skills
+  const [heroXP, setHeroXP] = useState(350); 
+  const [unlockedSkills, setUnlockedSkills] = useState<string[]>(['s1']); 
   
   const hero = heroes[selectedHeroIndex];
   const skills = mockSkills[hero.id] || mockSkills['default'];
@@ -831,7 +831,7 @@ const ArmoryScreen: React.FC<ArmoryScreenProps> = ({ onBack }) => {
                             </div>
                          </div>
 
-                         {/* Rarity Group */}
+                         {/* Rarity Group with Visual Legend */}
                          <div>
                             <div className="flex items-center gap-2 mb-1.5 border-b border-[#3d342b] pb-1">
                                 <span className="material-symbols-outlined text-[#6b5d4d] text-[12px]">diamond</span>
@@ -848,7 +848,7 @@ const ArmoryScreen: React.FC<ArmoryScreenProps> = ({ onBack }) => {
                                     <button
                                         key={rarity}
                                         onClick={() => setRarityFilter(rarity)}
-                                        className={`px-2 py-1 text-[8px] uppercase tracking-wider border rounded-sm transition-all flex-1
+                                        className={`px-2 py-1 text-[8px] uppercase tracking-wider border rounded-sm transition-all flex-1 flex items-center justify-center gap-1
                                         ${rarityFilter === rarity ? 'border-opacity-100 bg-opacity-10' : 'border-opacity-30 bg-opacity-0 hover:border-opacity-60'}
                                         `}
                                         style={{ 
@@ -857,6 +857,7 @@ const ArmoryScreen: React.FC<ArmoryScreenProps> = ({ onBack }) => {
                                         backgroundColor: rarityFilter === rarity ? rarityColors[rarity] : undefined
                                         }}
                                     >
+                                        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: rarityColors[rarity] }}></div>
                                         {rarity.charAt(0)}
                                     </button>
                                 ))}
