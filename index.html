@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ancient Expeditions</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&family=Caveat:wght@400;700&family=Cedarville+Cursive&family=Reenie+Beanie&family=Permanent+Marker&family=Epilogue:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Noto+Sans:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['Cinzel', 'serif'],
+              serif: ['Playfair Display', 'serif'],
+              sans: ['Lato', 'sans-serif'],
+              handwriting: ['Caveat', 'cursive'],
+              'script-title': ['Cedarville Cursive', 'cursive'],
+              'rough': ['Reenie Beanie', 'cursive'],
+              'marker': ['Permanent Marker', 'cursive'],
+              'epilogue': ['Epilogue', 'sans-serif'],
+              'noto-serif': ['Noto Serif', 'serif'],
+              'noto-sans': ['Noto Sans', 'sans-serif'],
+              'space': ['Space Grotesk', 'sans-serif'],
+              'hand': ['Caveat', 'cursive'],
+            },
+            colors: {
+              'expedition-gold': '#c5a059',
+              'expedition-dark': '#1a1410',
+              'jungle-deep': '#0f1610',
+              'stone-dark': '#1c1c1c',
+              'stone-light': '#383838',
+              'parchment': '#e3dacb',
+              'leather': '#4a3b2a',
+              'primary': '#f49d25',
+              'background-dark': '#221a10',
+              'brass-light': '#d4af37',
+              'brass-dark': '#8a6e2f',
+              'stone-deep': '#1a1612',
+              'stone-medium': '#3d342b',
+              
+              // New additions for Workshop and Smuggler
+              'wood-dark': '#3e3428',
+              'wood-light': '#544a3b',
+              'parchment-dark': '#b0a08b',
+              'iron': '#2a2a2a',
+              'smuggler-red': '#d94e4e',
+              'smuggler-glow': '#ff6b6b',
+              'gold-bright': '#e0c070',
+              'gold-dim': '#8f7640',
+              'mystic': '#9b5de5',
+              'mystic-light': '#d8b4fe',
+              'tent-fabric': '#2d241c',
+              'wood-rough': '#3e3025',
+              
+              // War Room
+              'ember': '#ff4500',
+              
+              // Tutorial
+              'torch-amber': '#ffb647',
+
+              // Ascension
+              "soul-primary": "#0d7ff2",
+              "soul-obsidian": "#111418",
+              "soul-dark": "#050608",
+
+              // Death Screen
+              "blood-primary": "#cf1717",
+
+              // Night Run
+              "night-primary": "#ec7f13",
+              "night-stone-border": "#54473b",
+              "night-stone-bg": "#181411",
+
+              // Fusion Apparatus (Lighter Palette)
+              "apparatus-stone": "#dcd8d3",
+              "apparatus-stone-dark": "#b8b2aa",
+              "apparatus-parchment": "#fdfbf7",
+              "apparatus-border": "#e8e1d5",
+              "apparatus-bronze": "#a87b51",
+              "apparatus-ink": "#2c241b",
+
+              // Temple Entrance
+              "temple-gold": "#ecb613",
+            },
+            backgroundImage: {
+              'grunge-overlay': "url('https://www.transparenttextures.com/patterns/dark-matter.png')",
+              'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+              'temple-gradient': "radial-gradient(circle at center top, #2e2418 0%, #15100a 100%)",
+              'brass-gradient': "linear-gradient(180deg, #b88a44 0%, #7d5a23 50%, #5e4014 100%)",
+              'brass-shine': "linear-gradient(90deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%)",
+              'canvas-pattern': "url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.6\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.1\'/%3E%3C/svg%3E')",
+              'obsidian-texture': 'linear-gradient(135deg, #111418 0%, #050608 100%)',
+              'torch-vignette': 'radial-gradient(circle at 50% 60%, transparent 10%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.85) 80%, rgba(0,0,0,1) 100%)',
+              'ember-glow': 'radial-gradient(circle, rgba(236,127,19,0.4) 0%, transparent 70%)',
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            },
+            boxShadow: {
+              'paper': '0 10px 30px -5px rgba(0, 0, 0, 0.5)',
+              'glow': "0 0 15px rgba(244, 157, 37, 0.3)",
+              'inner-glow': "inset 0 0 20px rgba(244, 157, 37, 0.2)",
+              'bevel': "inset 1px 1px 2px rgba(255,255,255,0.1), inset -1px -1px 2px rgba(0,0,0,0.5)",
+              'ember-glow': '0 0 10px rgba(255, 69, 0, 0.8)',
+              'soul-glow': '0 0 20px rgba(13, 127, 242, 0.4)',
+              "deep-slot": "inset 0px 4px 8px rgba(0,0,0,0.4)",
+              'flame': '0 0 15px 2px rgba(236, 182, 19, 0.3)',
+            },
+            animation: {
+                'spin-slow': 'spin 20s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'flicker': 'flicker 4s infinite alternate',
+                'float': 'float 8s ease-in-out infinite',
+            },
+            keyframes: {
+                flicker: {
+                    '0%, 100%': { opacity: 1, transform: 'scale(1)', filter: 'brightness(1)' },
+                    '50%': { opacity: 0.8, transform: 'scale(1.02)', filter: 'brightness(1.1)' },
+                    '25%': { opacity: 0.9, transform: 'scale(0.98)', filter: 'brightness(0.9)' },
+                    '75%': { opacity: 0.85, transform: 'scale(0.99)', filter: 'brightness(0.95)' },
+                },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0) translateX(0)', opacity: 0 },
+                    '20%': { opacity: 0.4 },
+                    '50%': { transform: 'translateY(-10px)' },
+                    '80%': { opacity: 0.4 },
+                    '100%': { transform: 'translateY(-120px) translateX(30px)', opacity: 0 },
+                }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.2); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c5a059; 
+        border-radius: 2px;
+      }
+      .hide-scrollbar::-webkit-scrollbar,
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar, .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      /* Shared Styles */
+      .glass-panel-dark {
+        background: rgba(10, 10, 10, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(197, 160, 89, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+      .text-shadow-sm { text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+      .cinematic-vignette { background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 100%); }
+      .grain {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+        background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        opacity: 0.05; z-index: 9999;
+      }
+      .bg-grain { background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDRU90IbhvkfcWYE3FuaM2SnLY7R9ha1D4AKC0UqOQANbDQ9kt2f_jLv_XbeI-miAxrasitGBuBwls0XcJvaeK-OBg2lE3tK3Wo6J3XMqnWZDAr7eoTCAWyIs_xO4oHBZPcxdkjRTUvjFQm_hUtr5AeDsF1tujBGFPa037Sf0ViFBQizFUhAQBRXobL9SFBQp-drtyTzxJt-hN1Y1nS7pAoz35PAZ0mdyCL35peVKFHcXcyegY5sQ2QvkC4D5idn_5xxGVWnsWKTZs); }
+      
+      /* Clip Paths */
+      .clip-torn-right {
+        clip-path: polygon(0% 0%, 95% 0%, 100% 5%, 95% 10%, 100% 15%, 95% 20%, 100% 25%, 95% 30%, 100% 35%, 95% 40%, 100% 45%, 95% 50%, 100% 55%, 95% 60%, 100% 65%, 95% 70%, 100% 75%, 95% 80%, 100% 85%, 95% 90%, 100% 95%, 95% 100%, 0% 100%);
+      }
+      .clip-torn-bottom {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 95% 100%, 90% 95%, 85% 100%, 80% 95%, 75% 100%, 70% 95%, 65% 100%, 60% 95%, 55% 100%, 50% 95%, 45% 100%, 40% 95%, 35% 100%, 30% 95%, 25% 100%, 20% 95%, 15% 100%, 10% 95%, 5% 100%, 0% 95%);
+      }
+      .clip-path-jagged {
+        clip-path: polygon(0% 100%, 5% 0%, 10% 100%, 15% 0%, 20% 100%, 25% 0%, 30% 100%, 35% 0%, 40% 100%, 45% 0%, 50% 100%, 55% 0%, 60% 100%, 65% 0%, 70% 100%, 75% 0%, 80% 100%, 85% 0%, 90% 100%, 95% 0%, 100% 100%);
+      }
+
+      /* Text Effects */
+      .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+      .text-glow { text-shadow: 0 0 10px rgba(244, 157, 37, 0.5); }
+      .text-glow-mystic { text-shadow: 0 0 10px rgba(155, 93, 229, 0.6); }
+      .text-glow-gold { text-shadow: 0 0 8px rgba(224, 192, 112, 0.4); }
+      .charcoal-text { color: #2a2a2a; mix-blend-mode: multiply; text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1); }
+      .charcoal-icon { color: #2a2a2a; opacity: 0.85; filter: blur(0.5px); mix-blend-mode: multiply; }
+      .rune-glow-effect { text-shadow: 0 0 15px rgba(255, 182, 71, 0.6), 0 0 30px rgba(255, 182, 71, 0.4); }
+      .text-sand-traced { text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8), 0px -1px 1px rgba(255, 160, 50, 0.2); }
+      .text-distressed { text-shadow: 2px 2px 0px rgba(0,0,0,0.8); letter-spacing: 0.1em; }
+      .text-etched { text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.8); }
+
+      /* Materials & Textures */
+      .wood-texture { background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 2px, transparent 2px, transparent 8px); }
+      .glass-panel-obsidian {
+          background: rgba(17, 20, 24, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .wax-seal {
+          background: radial-gradient(circle at 30% 30%, #a63434, #681818);
+          box-shadow: 0 4px 6px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.2);
+          border: 2px solid #521010;
+      }
+      .stone-texture { background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBD_QiORlqs32FG1dTrRlRJXDP6bVKeMX-0W7uzOSEK80f539keaF1k74MFvXB4yPqzM1F_0fmOn2WpKt1hn5J0GHWSNolX4gbXQBXVkochoIBLdjzxa7JJEgUwTjtNWMlIMfjXjfeBuUbq8GDQFWVyf7NlV2uWGSKCUmQHbTBBa7-MXtK9ZSre13wjNdracKCn1oBIbBy62nKPuPz6kx1k9dr7Z-oqA3V8DIpSPBLGsfuGAXKji120qOvzklLSNDe90Avmo7fx_ZU); }
+      .obsidian-texture {
+          background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); position: relative;
+      }
+      .obsidian-texture::after {
+          content: ""; position: absolute; inset: 0;
+          background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 45%, transparent 50%);
+          background-size: 200% 200%;
+      }
+      .wall-surface {
+          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBD_QiORlqs32FG1dTrRlRJXDP6bVKeMX-0W7uzOSEK80f539keaF1k74MFvXB4yPqzM1F_0fmOn2WpKt1hn5J0GHWSNolX4gbXQBXVkochoIBLdjzxa7JJEgUwTjtNWMlIMfjXjfeBuUbq8GDQFWVyf7NlV2uWGSKCUmQHbTBBa7-MXtK9ZSre13wjNdracKCn1oBIbBy62nKPuPz6kx1k9dr7Z-oqA3V8DIpSPBLGsfuGAXKji120qOvzklLSNDe90Avmo7fx_ZU');
+          background-size: 500px; background-repeat: repeat;
+      }
+      .gold-panel {
+          background: linear-gradient(135deg, #bfa76f 0%, #fceabb 30%, #d4af37 60%, #997e3d 100%);
+          box-shadow: inset 0 0 20px rgba(62, 39, 35, 0.6), 0 4px 6px rgba(0,0,0,0.5); position: relative;
+      }
+      .gold-panel::after {
+          content: ''; position: absolute; inset: 0;
+          background: url('https://www.transparenttextures.com/patterns/scratched-metal.png');
+          opacity: 0.4; mix-blend-mode: multiply; pointer-events: none;
+      }
+      .etched-gold-text {
+          color: #3e2723; text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.4), 0px -1px 0px rgba(0, 0, 0, 0.2);
+      }
+      .charcoal-sig {
+          font-family: 'Caveat', cursive; color: #1a0f0a; mix-blend-mode: multiply;
+          text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1); opacity: 0.85;
+      }
+
+      /* Animations & Effects */
+      .lamp-flicker { animation: flicker 4s infinite alternate; }
+      .torch-flicker { animation: flicker 2s infinite alternate; }
+      .rune-glow { box-shadow: 0 0 40px 10px rgba(236, 182, 19, 0.3); }
+      .shadow-flame { box-shadow: 0 0 15px 2px rgba(236, 182, 19, 0.3); }
+      .god-ray { background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%); pointer-events: none; }
+      .lamp-light { animation: flicker 4s infinite alternate ease-in-out; }
+      
+      .dust-mote {
+          position: absolute; background: rgba(255, 240, 200, 0.4); border-radius: 50%; filter: blur(1px);
+          animation: float 10s infinite linear;
+      }
+
+      @keyframes flicker {
+          0% { opacity: 0.1; } 5% { opacity: 0.15; } 10% { opacity: 0.1; } 
+          15% { opacity: 0.2; } 20% { opacity: 0.1; } 40% { opacity: 0.12; } 
+          60% { opacity: 0.08; } 80% { opacity: 0.15; } 100% { opacity: 0.1; }
+      }
+      @keyframes float-ember {
+          0% { transform: translateY(0) translateX(0); opacity: 0; }
+          10% { opacity: 1; }
+          100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+      }
+      .ember {
+          position: absolute; background-color: #ec7f13; border-radius: 50%; pointer-events: none; filter: blur(1px);
+      }
+      .ember-1 { width: 4px; height: 4px; left: 20%; bottom: 0; animation: float-ember 7s infinite linear; animation-delay: 0s; }
+      .ember-2 { width: 3px; height: 3px; left: 50%; bottom: 0; animation: float-ember 9s infinite linear; animation-delay: 2s; }
+      .ember-3 { width: 5px; height: 5px; left: 80%; bottom: 0; animation: float-ember 6s infinite linear; animation-delay: 4s; }
+      .ember-4 { width: 2px; height: 2px; left: 35%; bottom: -10%; animation: float-ember 8s infinite linear; animation-delay: 1s; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#0a0806] text-white h-screen w-screen overflow-hidden selection:bg-expedition-gold selection:text-black">
+    <div class="grain"></div>
+    <div id="root" class="h-full w-full"></div>
+  </body>
+</html>
